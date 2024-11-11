@@ -47,7 +47,7 @@ class ItemCard extends StatelessWidget {
                 const Padding(padding: EdgeInsets.all(3)),
                 Text(
                   item.name,
-                  textAlign: TextAlign.center,
+                  // textAlign: TextAlign.center,
                   style: const TextStyle(color: Colors.white),
                 ),
               ],

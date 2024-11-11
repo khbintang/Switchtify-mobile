@@ -15,9 +15,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: Colors.grey,
+          primarySwatch: Colors.grey, // Use grey as a placeholder for swatch
         ).copyWith(
-          secondary: Colors.black,
+          primary: Colors.black, // Set primary color to black
+          secondary: Colors.black, // Set secondary color to black if needed
         ),
         useMaterial3: true,
         fontFamily: "Poppins",

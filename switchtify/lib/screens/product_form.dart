@@ -12,9 +12,10 @@ class _ProductFormPageState extends State<ProductFormPage> {
   final _formKey = GlobalKey<FormState>();
   String _productName = "";
   int _productPrice = 0;
-  int _productStock = 0;
-  String _productDescription = "";
+  String _productType = "";
+  String _soundProfile = "";
   String _productImage = "";
+  String _productDescription = "";
 
   @override
   Widget build(BuildContext context) {
@@ -34,127 +35,24 @@ class _ProductFormPageState extends State<ProductFormPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    hintText: "Product Name",
-                    labelText: "Product Name",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                  ),
-                  onChanged: (String? value) {
-                    setState(() {
-                      _productName = value!;
-                    });
-                  },
-                  validator: (String? value) {
-                    if (value == null || value.isEmpty) {
-                      return "Product Name cannot be empty!";
-                    }
-                    return null;
-                  },
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    hintText: "Product Price",
-                    labelText: "Product Price",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                  ),
-                  onChanged: (String? value) {
-                    setState(() {
-                      _productPrice = int.tryParse(value!) ?? 0;
-                    });
-                  },
-                  validator: (String? value) {
-                    if (value == null || value.isEmpty) {
-                      return "Product Price cannot be empty!";
-                    }
-                    if (int.tryParse(value) == null) {
-                      return "Product Price must be a valid number!";
-                    }
-                    return null;
-                  },
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    hintText: "Product Stock",
-                    labelText: "Product Stock",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                  ),
-                  onChanged: (String? value) {
-                    setState(() {
-                      _productStock = int.tryParse(value!) ?? 0;
-                    });
-                  },
-                  validator: (String? value) {
-                    if (value == null || value.isEmpty) {
-                      return "Product Stock cannot be empty!";
-                    }
-                    if (int.tryParse(value) == null) {
-                      return "Product Stock must be a valid number!";
-                    }
-                    return null;
-                  },
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    hintText: "Product Description",
-                    labelText: "Product Description",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                  ),
-                  onChanged: (String? value) {
-                    setState(() {
-                      _productDescription = value!;
-                    });
-                  },
-                  validator: (String? value) {
-                    if (value == null || value.isEmpty) {
-                      return "Product Description cannot be empty!";
-                    }
-                    return null;
-                  },
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    hintText: "Product Image",
-                    labelText: "Product Image",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                  ),
-                  onChanged: (String? value) {
-                    setState(() {
-                      _productImage = value!;
-                    });
-                  },
-                  validator: (String? value) {
-                    if (value == null || value.isEmpty) {
-                      return "Product Image cannot be empty!";
-                    }
-                    return null;
-                  },
-                ),
-              ),
+              _buildTextInput("Product Name", (value) {
+                _productName = value!;
+              }, "Product Name cannot be empty!"),
+              _buildNumberInput("Product Price", (value) {
+                _productPrice = int.tryParse(value!) ?? 0;
+              }, "Product Price must be a valid number!"),
+              _buildTextInput("Product Type", (value) {
+                _productType = value!;
+              }, "Product Type cannot be empty!"),
+              _buildTextInput("Sound Profile", (value) {
+                _soundProfile = value!;
+              }, "Sound Profile cannot be empty!"),
+              _buildTextInput("Product Image", (value) {
+                _productImage = value!;
+              }, "Product Image cannot be empty!"),
+              _buildTextInput("Product Description", (value) {
+                _productDescription = value!;
+              }, "Product Description cannot be empty!"),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(
@@ -177,10 +75,11 @@ class _ProductFormPageState extends State<ProductFormPage> {
                                   children: [
                                     Text('Product Name: $_productName'),
                                     Text('Product Price: $_productPrice'),
-                                    Text('Product Stock: $_productStock'),
+                                    Text('Product Type: $_productType'),
+                                    Text('Sound Profile: $_soundProfile'),
+                                    Text('Product Image: $_productImage'),
                                     Text(
                                         'Product Description: $_productDescription'),
-                                    Text('Product Image: $_productImage'),
                                   ],
                                 ),
                               ),
@@ -208,6 +107,64 @@ class _ProductFormPageState extends State<ProductFormPage> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Padding _buildTextInput(
+      String label, Function(String?) onSave, String validationMessage) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+          hintText: label,
+          labelText: label,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(5.0),
+          ),
+        ),
+        onChanged: (String? value) {
+          setState(() {
+            onSave(value);
+          });
+        },
+        validator: (String? value) {
+          if (value == null || value.isEmpty) {
+            return validationMessage;
+          }
+          return null;
+        },
+      ),
+    );
+  }
+
+  Padding _buildNumberInput(
+      String label, Function(String?) onSave, String validationMessage) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+          hintText: label,
+          labelText: label,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(5.0),
+          ),
+        ),
+        onChanged: (String? value) {
+          setState(() {
+            onSave(value);
+          });
+        },
+        validator: (String? value) {
+          if (value == null || value.isEmpty) {
+            return "$label cannot be empty!";
+          }
+          if (int.tryParse(value) == null) {
+            return validationMessage;
+          }
+          return null;
+        },
       ),
     );
   }

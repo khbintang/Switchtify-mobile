@@ -53,7 +53,7 @@ samples, guidance on mobile development, and a full API reference.
 
 ## ASSINGMENT 8
 
-- [X] Create at least one new page in the           application, specifically a form page to add a new   item with the following requirements:
+- [X] Create at least one new page in the application, specifically a form page to add a new   item with the following requirements:
    - [X] Use at least three input elements: name, amount, and description. Add input elements according to the model in your previous Django project.
    - [X] Include a Save button.
    - [X] Each input element in the form must also be validated with the following criteria:
@@ -68,9 +68,14 @@ samples, guidance on mobile development, and a full API reference.
 
 - [X] Answer the following questions in README.md in the root folder (please modify the README.md you created earlier; add subtitles for each assignment).
    - [X] What is the purpose of const in Flutter? Explain the advantages of using const in Flutter code. When should we use const, and when should it not be used?
+   const digunakan untuk mendeklarasikan widget atau variabel dengan nilai konstan, yang tidak akan berubah saat aplikasi berjalan. Keuntungan menggunakan const adalah untuk mengoptimalkan kinerja karena Flutter tidak perlu membuat ulang objek yang sama setiap kali layar di-render, sehingga meningkatkan efisiensi memori. const idealnya digunakan pada widget statis atau data tetap, tetapi hindari penggunaannya untuk variabel yang nilainya berubah selama runtime.
    - [X] Explain and compare the usage of Column and Row in Flutter. Provide example implementations of each layout widget!
+   Column dan Row adalah widget tata letak yang memungkinkan pengaturan elemen secara vertikal (Column) atau horizontal (Row). Column digunakan untuk menumpuk widget di atas satu sama lain, sementara Row untuk meletakkan widget berdampingan. Misalnya, Column(children: [Text("Satu"), Text("Dua")]) akan menampilkan teks secara vertikal, dan Row(children: [Text("A"), Text("B")]) akan menampilkan teks secara horizontal.
    - [X] List the input elements you used on the form page in this assignment. Are there other Flutter input elements you didn’t use in this assignment? Explain!
+   Elemen input yang digunakan dalam form ini meliputi TextFormField untuk nama produk, harga, jenis, profil suara, gambar, dan deskripsi produk. 
    - [X] How do you set the theme within a Flutter application to ensure consistency? Did you implement a theme in your application?
+   Untuk konsistensi tampilan, tema dapat diatur di Flutter menggunakan ThemeData di dalam MaterialApp, sehingga setiap widget mengikuti gaya yang sama seperti warna utama atau font. Dalam aplikasi ini, tema telah diterapkan dengan warna hitam dan font tertentu agar seluruh tampilan seragam.
    - [X] How do you manage navigation in a multi-page Flutter application?
+   Navigasi di Flutter dikelola menggunakan Navigator, yang menyediakan metode seperti push untuk membuka halaman baru dan pop untuk kembali ke halaman sebelumnya. Navigator memudahkan perpindahan antarhalaman dengan animasi yang sesuai dan memungkinkan penyimpanan status halaman.
    
 - [X] Add-Commit-Push Steps
