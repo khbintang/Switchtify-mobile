@@ -50,3 +50,27 @@ samples, guidance on mobile development, and a full API reference.
     [ x ] Explain how you implemented the checklist above step-by-step.
     - Sudah tertulis di tiap checkpoint
  [ x ] Perform add-commit-push to GitHub.
+
+## ASSINGMENT 8
+
+- [X] Create at least one new page in the           application, specifically a form page to add a new   item with the following requirements:
+   - [X] Use at least three input elements: name, amount, and description. Add input elements according to the model in your previous Django project.
+   - [X] Include a Save button.
+   - [X] Each input element in the form must also be validated with the following criteria:
+      - [X] No input field should be left empty.
+      - [X] Each input field must contain data in the model's data type.
+- [X] Redirect the user to the new item addition   form when they press the Add Item button on the main page.
+- [X] Display the data from the form in a pop-up after pressing the Save button on the new item addition form page.
+- [X] Create a drawer in the application with the following requirements:
+   - [X] The drawer should contain at least two options: Home and Add Item.
+   - [X] When selecting the Home option, the application should redirect the user to the main page.
+- [X] When selecting the Add Item option, the application should redirect the user to the new item addition form page.
+
+- [X] Answer the following questions in README.md in the root folder (please modify the README.md you created earlier; add subtitles for each assignment).
+   - [X] What is the purpose of const in Flutter? Explain the advantages of using const in Flutter code. When should we use const, and when should it not be used?
+   - [X] Explain and compare the usage of Column and Row in Flutter. Provide example implementations of each layout widget!
+   - [X] List the input elements you used on the form page in this assignment. Are there other Flutter input elements you didn’t use in this assignment? Explain!
+   - [X] How do you set the theme within a Flutter application to ensure consistency? Did you implement a theme in your application?
+   - [X] How do you manage navigation in a multi-page Flutter application?
+   
+- [X] Add-Commit-Push Steps
