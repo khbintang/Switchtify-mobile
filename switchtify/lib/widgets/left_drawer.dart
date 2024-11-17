@@ -20,10 +20,8 @@ class LeftDrawer extends StatelessWidget {
                 children: [
                   Text(
                     'Switchtify',
-                    // textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 24,
-                      // fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
                   ),
