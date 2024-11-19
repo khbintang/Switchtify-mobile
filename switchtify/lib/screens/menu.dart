@@ -16,7 +16,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Switchtify',
+          'Checkoutify',
           style: TextStyle(
             color: Colors.white,
             fontSize: 20,

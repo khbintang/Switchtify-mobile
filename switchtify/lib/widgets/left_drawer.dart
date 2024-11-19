@@ -1,6 +1,7 @@
-import 'package:switchtify/screens/product_form.dart';
 import 'package:flutter/material.dart';
+import 'package:switchtify/screens/list_productentry.dart';
 import 'package:switchtify/screens/menu.dart';
+import 'package:switchtify/screens/product_form.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -49,6 +50,16 @@ class LeftDrawer extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const ProductFormPage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.list),
+            title: const Text('Product List'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProductPage()),
               );
             },
           ),
